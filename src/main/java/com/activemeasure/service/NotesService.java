@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Optional;
 
 @Service
 public class NotesService {
@@ -28,9 +29,14 @@ public class NotesService {
         }
     }
 
-    public void deleteNote(User user, Note note){
+    public void deleteNote(User user, Long id){
         if(userService.authenticate(user.getEmail(), user.getPassword())){
-            notesRepository.delete(note);
+            Optional<Note> noteToDelete = notesRepository.findById(id);
+            if(noteToDelete.isPresent()){
+                if(noteToDelete.get().getEmail() == user.getEmail()){
+                    notesRepository.deleteById(id);
+                }
+            }
         }
     }
 
