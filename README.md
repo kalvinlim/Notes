@@ -38,3 +38,11 @@ curl -X POST \
 
 Update user's note by note id
 
+curl -X POST \
+  http://localhost:8080/notes/getall \
+  -H 'Cache-Control: no-cache' \
+  -H 'Postman-Token: 74e2bcf4-e757-475c-9d8c-10097846c672' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F email=kalvin@kalvin.com \
+  -F password=password
+  

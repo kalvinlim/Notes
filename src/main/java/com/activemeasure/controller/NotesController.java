@@ -15,9 +15,6 @@ public class NotesController {
     @Autowired
     private NotesService notesService;
 
-    @Autowired
-    private UserService userService;
-
     @PostMapping("/notes/getall")
     public @ResponseBody Iterable<Note> getUserNotes(@RequestParam String email, @RequestParam String password) {
         User user = new User();
@@ -48,6 +45,22 @@ public class NotesController {
         note.setEmail(email);
 
         notesService.createNote(user, note);
+    }
+
+    @PostMapping("/notes/update")
+    public void updateNote(@RequestParam String email, @RequestParam String password, @RequestParam String title, @RequestParam String text, @RequestParam Long id) {
+        User user = new User();
+        user.setEmail(email);
+        user.setPassword(password);
+
+        Note note = new Note();
+        note.setTitle(title);
+        note.setNote(text);
+        note.setLastUpdateTime(LocalDate.now());
+        note.setEmail(email);
+        note.setId(id);
+
+        notesService.updateNote(user, note);
     }
 
 }

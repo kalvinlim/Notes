@@ -25,17 +25,19 @@ public class NotesService {
 
     public void updateNote(User user, Note note){
         if(userService.authenticate(user.getEmail(), user.getPassword())){
-            notesRepository.save(note);
+            Optional<Note> noteToUpdate = notesRepository.findById(note.getId());
+            if(noteToUpdate.isPresent() && noteToUpdate.get().getEmail().equals(user.getEmail())){ // You must own the note id and it must be present to update
+                note.setCreateTime(noteToUpdate.get().getCreateTime()); //maintain create time
+                notesRepository.save(note);
+            }
         }
     }
 
     public void deleteNote(User user, Long id){
         if(userService.authenticate(user.getEmail(), user.getPassword())){
             Optional<Note> noteToDelete = notesRepository.findById(id);
-            if(noteToDelete.isPresent()){
-                if(noteToDelete.get().getEmail().equals(user.getEmail())){
-                    notesRepository.deleteById(id);
-                }
+            if(noteToDelete.isPresent() && noteToDelete.get().getEmail().equals(user.getEmail())){ //You must own the note id and it must be present to delete
+                notesRepository.deleteById(id);
             }
         }
     }
@@ -46,6 +48,4 @@ public class NotesService {
         }
         return Collections.EMPTY_LIST;
     }
-
-
 }
