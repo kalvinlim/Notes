@@ -31,6 +31,7 @@ public class NotesController {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
+
         notesService.deleteNote(user, id);
     }
 
