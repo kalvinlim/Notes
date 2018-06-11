@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
+@Table(name="notes")
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,7 +17,7 @@ public class Note {
     @NotNull
     @Size(max=50)
     private String title;
-    
+
     @NonNull
     @Size(max=1000)
     private String note;
@@ -25,7 +26,10 @@ public class Note {
     private LocalDate createTime;
 
     @Column(columnDefinition="DATETIME")
-    private LocalDate updateTime;
+    private LocalDate lastUpdateTime;
+
+    @NotNull
+    private String email;
 
     public Integer getId() {
         return id;
@@ -43,8 +47,12 @@ public class Note {
         return createTime;
     }
 
-    public LocalDate getUpdateTime() {
-        return updateTime;
+    public LocalDate getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setId(Integer id) {
@@ -63,8 +71,12 @@ public class Note {
         this.createTime = createTime;
     }
 
-    public void setUpdateTime(LocalDate updateTime) {
-        this.updateTime = updateTime;
+    public void setLastUpdateTime(LocalDate lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 

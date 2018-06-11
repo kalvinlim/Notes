@@ -26,7 +26,7 @@ public class User {
     private LocalDate createTime;
 
     @Column(columnDefinition="DATETIME")
-    private LocalDate updateTime;
+    private LocalDate lastUpdateTime;
 
     public Integer getId() {
         return id;
@@ -44,8 +44,8 @@ public class User {
         return createTime;
     }
 
-    public LocalDate getUpdateTime() {
-        return updateTime;
+    public LocalDate getLastUpdateTime() {
+        return lastUpdateTime;
     }
 
     public void setId(Integer id) {
@@ -64,7 +64,7 @@ public class User {
         this.createTime = createTime;
     }
 
-    public void setUpdateTime(LocalDate updateTime) {
-        this.updateTime = updateTime;
+    public void setLastUpdateTime(LocalDate lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
     }
 }
