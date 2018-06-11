@@ -45,4 +45,3 @@ curl -X POST \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -F email=kalvin@kalvin.com \
   -F password=password
-  

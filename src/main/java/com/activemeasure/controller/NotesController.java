@@ -3,9 +3,11 @@ package com.activemeasure.controller;
 import com.activemeasure.domain.Note;
 import com.activemeasure.domain.User;
 import com.activemeasure.service.NotesService;
-import com.activemeasure.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 
