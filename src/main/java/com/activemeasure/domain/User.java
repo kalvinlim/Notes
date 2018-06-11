@@ -15,10 +15,11 @@ public class User {
 
     @NotNull
     @Email
+    @Size(max=255)
     private String email;
 
     @NotNull
-    @Size(min=8)
+    @Size(min=8, max=255)
     private String password;
 
     @Column(columnDefinition="DATETIME")
