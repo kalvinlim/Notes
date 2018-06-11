@@ -1,0 +1,9 @@
+
+*.class
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/Notes.iml
+.idea/vcs.xml
+.idea/workspace.xml
+notesapp.iml
