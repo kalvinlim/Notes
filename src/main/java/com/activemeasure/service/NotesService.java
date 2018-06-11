@@ -33,7 +33,7 @@ public class NotesService {
         if(userService.authenticate(user.getEmail(), user.getPassword())){
             Optional<Note> noteToDelete = notesRepository.findById(id);
             if(noteToDelete.isPresent()){
-                if(noteToDelete.get().getEmail() == user.getEmail()){
+                if(noteToDelete.get().getEmail().equals(user.getEmail())){
                     notesRepository.deleteById(id);
                 }
             }

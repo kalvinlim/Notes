@@ -24,4 +24,17 @@ curl -X POST \
   -F 'title=title 2' \
   -F 'text=this is the note text'
 
-  
+Delete user's note by note id
+
+curl -X POST \
+  http://localhost:8080/notes/delete \
+  -H 'Cache-Control: no-cache' \
+  -H 'Postman-Token: e826992e-3f38-48f2-9e35-7823c1c75111' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F email=kalvin@kalvin.com \
+  -F password=password \
+  -F id=2
+
+
+Update user's note by note id
+

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @NotNull
     @Size(max=50)
@@ -31,7 +31,7 @@ public class Note {
     @NotNull
     private String email;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -55,7 +55,7 @@ public class Note {
         return email;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
